@@ -45,7 +45,7 @@ async function addMentor() {
         subject: document.getElementById('subject').value,
     }
 
-    await fetch('http://localhost:3000/', {
+    await fetch('http://localhost:3000/addMentor', {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

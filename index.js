@@ -2,11 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require("cors");
 const app = express();
-
+const path = require('path');
 //middleware
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(express.static(path.join(__dirname, 'assets')));
 
 
 
@@ -29,8 +29,12 @@ let students = [{
     mentor: "Banu Prakash"
 },];
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'assets', 'index.html'));
+})
+
 //add mentor api
-app.post('/', (req, res) => {
+app.post('/addMentor', (req, res) => {
     req.body.id = mentors.length + 1;
     mentors.push(req.body);
     res.json("Mentor added...");
