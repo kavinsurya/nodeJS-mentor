@@ -2,7 +2,7 @@ let studentdata;
 
 //Function to get all student details
 async function studentData() {
-    let data = await fetch("http://localhost:3000/students");
+    let data = await fetch("https://kavin-mentor.herokuapp.com/students");
     studentdata = await data.json();
     let table = document.getElementById('studentdata');
 

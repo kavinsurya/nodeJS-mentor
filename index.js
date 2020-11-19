@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv').config();
 const cors = require("cors");
 const app = express();
 const path = require('path');
@@ -8,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'assets')));
 
-
+let port=process.env.port ||3000
 
 //Mentor db
 let mentors = [{
@@ -65,6 +66,6 @@ app.get('/students/:name', (req, res) => {
 
 
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Listening to port 3000');
 })

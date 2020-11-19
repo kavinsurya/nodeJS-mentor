@@ -45,7 +45,7 @@ async function addMentor() {
         subject: document.getElementById('subject').value,
     }
 
-    await fetch('http://localhost:3000/addMentor', {
+    await fetch('https://kavin-mentor.herokuapp.com/addMentor', {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -72,7 +72,7 @@ async function addStudent() {
         mentor: document.getElementById('mentor').value
     }
 
-    await fetch('http://localhost:3000/students', {
+    await fetch('https://kavin-mentor.herokuapp.com/students', {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -86,7 +86,7 @@ async function addStudent() {
 
 //Funttion tyo get students for particular mentor 
 async function getstudent(name) {
-    let rawdata = await fetch(`http://localhost:3000/students/${name}`);
+    let rawdata = await fetch(`https://kavin-mentor.herokuapp.com/students/${name}`);
     let studentdata = await rawdata.json();
 
     let ul = document.getElementById('students');
